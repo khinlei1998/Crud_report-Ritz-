@@ -18,3 +18,6 @@ Route::get('/', function () {
     return view('report');
 });
 Route::resource('/nocreport','NocReportsController');
+Route::get('/reportdetail','NocReportsController@all');
+Route::get('/pdf/{id}', 'NocReportsController@fun_pdf');
+
