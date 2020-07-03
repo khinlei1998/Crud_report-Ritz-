@@ -36,6 +36,7 @@ class NocReportsController extends Controller
     public function store(Request $request)
     {
       noc_reports::create($request->all());
+      return redirect()->route('all_reports');
     }
 
     /**
@@ -44,9 +45,15 @@ class NocReportsController extends Controller
      * @param  \App\noc_reports  $noc_reports
      * @return \Illuminate\Http\Response
      */
-    public function show(noc_reports $noc_reports)
+    public function showall()
     {
-        //
+        $reports = noc_reports::all();
+        return view("views.detail",compact('reports'));
+    }
+
+    public function show()
+    {
+      
     }
 
     /**
