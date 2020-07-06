@@ -79,7 +79,7 @@ class NocReportsController extends Controller
         $reportsdetail=noc_reports::where('id',$id)->first();
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
-       $pdf = PDF::loadView('reporttable.reportdetail', ['reportsdetail' => $reportsdetail]);
+       $pdf = PDF::loadView('reporttable.reportdetail', ['reportsdetail' => $reportsdetail,'button'=>false]);
        return $pdf->download('itsolutionstuff.pdf');
     
   
@@ -96,7 +96,8 @@ class NocReportsController extends Controller
         // dd($id);
         // $reportsdetail=DB::table('nocreports') ->where('id', $id);
         $reportsdetail=noc_reports::where('id',$id)->first();
-       return view('reporttable.reportdetail',compact('reportsdetail'));
+        $button=true;
+       return view('reporttable.reportdetail',compact('reportsdetail','button'));
     }
 
     /**
