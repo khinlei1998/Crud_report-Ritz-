@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\noc_reports;
 use Illuminate\Http\Request;
+use PDF;
 
 class NocReportsController extends Controller
 {
@@ -36,7 +37,24 @@ class NocReportsController extends Controller
     public function store(Request $request)
     {
       noc_reports::create($request->all());
-      return redirect()->route('all_reports');
+    //   return redirect()->route('all_reports');
+    
+    $allreports=noc_reports::all();
+ 
+      return view('reporttable.allreport',compact(['allreports']));
+    }
+
+    public function fun_pdf($id)
+   
+    {
+        // dd($id);
+        $reportsdetail=noc_reports::where('id',$id)->first();
+        // return view('reporttable.reportdetail',compact('reportsdetail'));
+    //    $allreports=noc_reports::all();
+       $pdf = PDF::loadView('reporttable.reportdetail', ['reportsdetail' => $reportsdetail]);
+       return $pdf->download('itsolutionstuff.pdf');
+    
+  
     }
 
     /**
@@ -51,9 +69,14 @@ class NocReportsController extends Controller
         return view("views.detail",compact('reports'));
     }
 
-    public function show()
-    {
+   
       
+    public function show($id)
+    {
+        // dd($id);
+        // $reportsdetail=DB::table('nocreports') ->where('id', $id);
+        $reportsdetail=noc_reports::where('id',$id)->first();
+       return view('reporttable.reportdetail',compact('reportsdetail'));
     }
 
     /**

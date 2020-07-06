@@ -18,4 +18,13 @@ Route::get('/', function () {
     return view('report');
 });
 Route::resource('/nocreport','NocReportsController');
-Route::get('/all_reports','NocReportsController@showall');
+
+// Route::get('/all_reports','NocReportsController@showall');
+
+Route::get('/reportdetail','NocReportsController@all');
+Route::get('/pdf/{id}', 'NocReportsController@fun_pdf');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
