@@ -27,6 +27,6 @@ Route::get('/pdf/{id}', 'NocReportsController@fun_pdf');
 Route::post('/getUser','NocReportsController@getuser')->name('getUser');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

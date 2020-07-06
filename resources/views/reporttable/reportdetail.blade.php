@@ -146,8 +146,8 @@
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 850px;">
                         <tr>
                             <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                                <img src="https://cdn.jobnet.com.mm/images/can/200/200/201704250530386004.png" width="110" height="120" style="display: block; border: 0px;" />
-
+                                <!-- <img src="https://cdn.jobnet.com.mm/images/can/200/200/201704250530386004.png" width="110" height="120" style="display: block; border: 0px;" /> -->
+                             <img src="data:image;base64, {{$encode_image}}" alt="Red dot" />
                                 <h6 style="font-size: 18px; font-weight: 500;">Cyber Security & Management Service</h6> 
 
                             
@@ -214,9 +214,19 @@
                         </tr>
                         <tr>
                             <td bgcolor="#ffffff" align="center" height="80px;">
+                            @if($button)
                             <a href="{{ url('/pdf/'. $reportsdetail->id ) }}" data-toggle="tooltip" data-placement="top" title="Click Here to Download as PDF">
-                                <img src="https://lh3.googleusercontent.com/proxy/BdjPVT9u3Jx7X0HTd86Mz6C0ceIu84ltYwKnI-wJUc3DTu6eDgYfVl0SHyVhd3DhF3E8sp0O0DxEcSYK4zeE64HyiuOOd4wH6LcRBgOH7azteGqwQj6uvSRn2Sp_JWl9IEHHhPT7ZrOzDxE" width="170" height="40" style="display: block; border: 0px;" />
+                                <!-- <img src="https://lh3.googleusercontent.com/proxy/BdjPVT9u3Jx7X0HTd86Mz6C0ceIu84ltYwKnI-wJUc3DTu6eDgYfVl0SHyVhd3DhF3E8sp0O0DxEcSYK4zeE64HyiuOOd4wH6LcRBgOH7azteGqwQj6uvSRn2Sp_JWl9IEHHhPT7ZrOzDxE" width="170" height="40" style="display: block; border: 0px;" /> -->
+                                <img src="{{asset('image/button.png')}}">
+                                <!-- <img src="data:image/png;base64, QzpceGFtcHBcaHRkb2NzXGNydWRfcmVwb3J0L3B1YmxpYy9pbWFnZS9yaXR6X2xvZ28ucG5n"
+                                 alt="Red dot" /> -->
+
+                                
                              </a>
+                             @endif
+                             <!-- <a href="{{ url('/pdf/'. $reportsdetail->id ) }}">Download
+                             </a> -->
+
                             <!-- <button type="button" class="btn btn-labeled btn-danger">
                                                             <span class="btn-label"><i class="glyphicon glyphicon-download"></i></span>
                                                             Export as PDF</button> -->

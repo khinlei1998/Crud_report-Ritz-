@@ -78,9 +78,13 @@ class NocReportsController extends Controller
     {
         // dd($id);
         $reportsdetail=noc_reports::where('id',$id)->first();
+        $path =file_get_contents(base_path().'/public/image/ritz_logo.png');
+        $encode_image=base64_encode($path);
+
+
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
-       $pdf = PDF::loadView('reporttable.reportdetail', ['reportsdetail' => $reportsdetail,'button'=>false]);
+       $pdf = PDF::loadView('reporttable.reportdetail', ['reportsdetail' => $reportsdetail,'button'=>false,'encode_image'=>$encode_image]);
        return $pdf->download('itsolutionstuff.pdf');
     
   
@@ -104,9 +108,13 @@ class NocReportsController extends Controller
     {
         // dd($id);
         // $reportsdetail=DB::table('nocreports') ->where('id', $id);
+      $path =file_get_contents(base_path().'/public/image/ritz_logo.png');
+      
+        $encode_image=base64_encode($path);
+        // return($encode_image);
         $reportsdetail=noc_reports::where('id',$id)->first();
         $button=true;
-       return view('reporttable.reportdetail',compact('reportsdetail','button'));
+       return view('reporttable.reportdetail',compact('reportsdetail','button'),['encode_image'=>$encode_image]);
     }
 
     /**
