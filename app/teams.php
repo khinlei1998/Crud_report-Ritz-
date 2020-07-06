@@ -8,4 +8,11 @@ class teams extends Model
 {
     //
  protected $primaryKey = 'id';
+
+ 
+
+    public function team_members(){
+        return $this->hasMany(teams_members::class,"team_id");
+    }
+
 }

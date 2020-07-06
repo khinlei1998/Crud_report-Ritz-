@@ -20,4 +20,6 @@ Route::get('/', function () {
 Route::resource('/nocreport','NocReportsController');
 Route::get('/reportdetail','NocReportsController@all');
 Route::get('/pdf/{id}', 'NocReportsController@fun_pdf');
+// ajax
+Route::post('/getUser','NocReportsController@getuser')->name('getUser');
 
