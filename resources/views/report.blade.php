@@ -23,6 +23,14 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
+        
+        <title>Summernote</title>
+        
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
 
         <!-- select2 -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
@@ -33,7 +41,7 @@
         <!-- Styles -->
         <style>
         .submit{
-    background:url('image/cover.jpg');
+    background:url('image/cover5.jpg');
     background-size:cover;
     padding: 6%;
 }
@@ -173,6 +181,7 @@ hr.style16:after {
                                             <div class="col-md-6">
                                                 <div class="form-group shadow-sm">
 
+
                                                     @php
                                                     $teams=DB::table('teams')->get();
                                                     @endphp
@@ -182,18 +191,19 @@ hr.style16:after {
                                                             <option value="{{$team->id}}">{{$team-> team_name}}</option>
                                                         @endforeach
                                                     </select>
-                                            
+                      
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group shadow-sm">
+
                                                     <select class="js-example-basic-multiple form-control" name="team_members_name[]" id="t_member_id"  multiple="multiple">
                                                 
                                                     </select>
                                                     @error('team_members_name')
                                                     <div class="text-danger" style="">{{ $message }}</div>
                                                     @enderror
-                                                  
+                                                 
                                                 </div>
                                               
                                             </div>
@@ -255,12 +265,18 @@ hr.style16:after {
             </div>
         
 
-       
+
     </body>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <!-- select2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script type="text/javascript">
+ 
+
+ 
+// $('.timepicker').datetimepicker({
+
+//     format: 'HH:mm:ss'
     $(document).ready(function() {
          $('.js-example-basic-multiple').select2();
     });
@@ -330,10 +346,7 @@ hr.style16:after {
                    
                 }
 
-              
-        
-
-
-</script>  
+            
+</script> 
 
 </html>
