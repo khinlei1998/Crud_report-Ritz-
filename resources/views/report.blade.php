@@ -180,29 +180,32 @@ hr.style16:after {
                                        
                                             <div class="col-md-6">
                                                 <div class="form-group shadow-sm">
-                                                <select class="form-control" name="team_name">
-                                                    <option class="hidden"  selected disabled>Team Name *</option>
-                                                    <option>NOC Team 3</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>
+
+
+                                                    @php
+                                                    $teams=DB::table('teams')->get();
+                                                    @endphp
+                                                    <select class="form-control" name="team_name" id="team_id" >
+                                                  
+                                                        @foreach($teams as $team)
+                                                            <option value="{{$team->id}}">{{$team-> team_name}}</option>
+                                                        @endforeach
+                                                    </select>
+                      
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group shadow-sm">
-                                                <select class="form-control" name="team_members_name">
-                                                    <option class="hidden"  selected disabled>Team Member Name *</option>
-                                                    <option>Kyaw Phyo Linn, Thu Ra Aung, Chan Nyein, Hinn Ei Shwe</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>
 
-                                                <!-- <select class="js-example-basic-multiple form-control" name="team_members_name[]" multiple="multiple">
-                                                    <option value="AL">Alabama</option>
-                                                       
-                                                    <option value="WY">Wyoming</option>
-                                                </select> -->
+                                                    <select class="js-example-basic-multiple form-control" name="team_members_name[]" id="t_member_id"  multiple="multiple">
+                                                
+                                                    </select>
+                                                    @error('team_members_name')
+                                                    <div class="text-danger" style="">{{ $message }}</div>
+                                                    @enderror
+                                                 
                                                 </div>
+                                              
                                             </div>
                                         
                                     </div>
@@ -211,6 +214,9 @@ hr.style16:after {
                                        
                                             <div class="col-md-12">
                                             <textarea class="form-control shadow-sm" name="description" id="summary-ckeditor" rows="7" placeholder="Summer Note *"></textarea>
+                                            @error('description')
+                                                    <div class="text-danger" style="">{{ $message }}</div>
+                                                    @enderror
                                             </div>
                                           
                                     </div>
@@ -220,23 +226,32 @@ hr.style16:after {
                                             <div class="col-md-4">
                                                 <div class="form-group shadow-sm">
                                                     <input type="date" class="form-control" id="" name="report_date">
+                                                    @error('report_date')
+                                                    <div class="text-danger" style="">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group shadow-sm">
                                                     <input class="timepicker form-control" placeholder="Start Time *" type="text" name="report_start_time">
+                                                    @error('report_start_time')
+                                                    <div class="text-danger" style="">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group shadow-sm">
                                                     <input class="timepicker form-control"  placeholder="End Time *" type="text" name="report_end_time">
+                                                    @error('report_end_time')
+                                                    <div class="text-danger" style="">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         
                                     </div>
 
-                                    <input type="submit" class="btnsubmit mt-3 float-right shadow"  value="submit"/>
+                                    <input type="submit" class="btnsubmit mt-3 float-right shadow" id="btnsubmit"  value="submit"/>
 
                                 </div>
                                 </form>
@@ -256,26 +271,82 @@ hr.style16:after {
     <!-- select2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script type="text/javascript">
-   $(document).ready(function() {
-$('#summernote').summernote({
-height:300,
-});
-});
+ 
+
  
 // $('.timepicker').datetimepicker({
 
 //     format: 'HH:mm:ss'
     $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+         $('.js-example-basic-multiple').select2();
+    });
 
-    CKEDITOR.replace('summary-ckeditor');
-$('.timepicker').datetimepicker({
+         CKEDITOR.replace('summary-ckeditor');
+        $('.timepicker').datetimepicker({
 
-    format: 'HH:mm:ss'
+            format: 'HH:mm:ss'
 
-// }); 
+        }); 
 
+
+                $('#team_id').on('change', function () {
+                    $('#t_member_id').empty();
+                    $("#t_member_id").append(new Option("","",false,false));
+                    var t_member = $('#team_id').find(':selected').val();
+                    console.log("N blade: [user/create] component :[User dropdown] from:user.create Selected Team =>"+t_member);
+                    getAssibleUser(t_member);
+                });
+
+                function getAssibleUser(t_member){
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        method: "POST",
+                        url: "/getUser",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            "t_member": t_member
+                        }
+                    }).done(function (data) {
+                     console.log(data);
+                     for (var i = 0; i < data.length; i++) {
+                        var newOption = new Option(data[i].name, data[i].name, false, false);
+                        $('#t_member_id').append(newOption);
+                        console.log(newOption);
+                     }
+                       
+                    }).fail(function (jqXHR, textStatus) {
+                        console.log("F blade: [employee/create] component :[department dropdown] from:employee.create Fail =>" + textStatus)
+                    });
+                }
+
+                window.onload = function () {
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        method: "POST",
+                        url: "/getUser",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            "t_member": 1
+                        }
+                    }).done(function (data) {
+                     console.log(data);
+                     for (var i = 0; i < data.length; i++) {
+                        var newOption = new Option(data[i].name, data[i].name, false, false);
+                        $('#t_member_id').append(newOption);
+                        console.log(newOption);
+                     }
+                       
+                    }).fail(function (jqXHR, textStatus) {
+                        console.log("F blade: [employee/create] component :[department dropdown] from:employee.create Fail =>" + textStatus)
+                    });
+                   
+                }
+
+            
 </script> 
 
 </html>

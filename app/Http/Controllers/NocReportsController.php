@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\noc_reports;
 use Illuminate\Http\Request;
 use PDF;
+use App\teams_members;
+use Illuminate\Support\Facades\Validator;
 
 class NocReportsController extends Controller
 {
@@ -36,12 +38,39 @@ class NocReportsController extends Controller
      */
     public function store(Request $request)
     {
-      noc_reports::create($request->all());
-    //   return redirect()->route('all_reports');
+
+      
+
+        $validator = Validator::make($request->all(), [
+            'report_end_time' => 'required',
+            'report_start_time' => 'required',
+            'report_date' => 'required',
+            'team_members_name'=> 'required',
+            'description'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+          
+            return redirect('/')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
     
-    $allreports=noc_reports::all();
+
+        // dd($request);
+        $t_member=new noc_reports();
+        $t_member->team_name=$request->team_name;
+    $t_member->team_members_name=implode(",",request('team_members_name'));
+        $t_member->description=$request->description;
+        $t_member->report_date=$request->report_date;
+        $t_member->report_start_time=$request->report_start_time;
+        $t_member->report_end_time=$request->report_end_time;
+        $t_member->save();
+     
+    //   noc_reports::create($request->all());
+     $allreports=noc_reports::all();
  
-      return view('reporttable.allreport',compact(['allreports']));
+       return view('reporttable.allreport',compact(['allreports']));
     }
 
     public function fun_pdf($id)
@@ -111,5 +140,16 @@ class NocReportsController extends Controller
     public function destroy(noc_reports $noc_reports)
     {
         //
+    }
+
+    public function getuser(Request $request)
+    {
+        if ($request) {
+           
+            $user = teams_members::where('team_id',$request->t_member)->get();
+            return response()->json($user);
+        } else {
+
+        }
     }
 }
