@@ -24,24 +24,25 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
 
-
+        <!-- select2 -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
         <style>
-        .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 3%;
-    padding: 3%;
+        .submit{
+    background:url('image/cover.jpg');
+    background-size:cover;
+    padding: 6%;
 }
-.register-left{
+.submit-left{
     text-align: center;
     color: #fff;
-    margin-top: 4%;
+    margin-top: 3%;
 }
-.register-left input{
+.submit-left input{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -49,19 +50,20 @@
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
-    margin-bottom: 3%;
+    margin-top: 0%;
+    margin-bottom: 8%;
     cursor: pointer;
+    shadow:
 }
-.register-right{
-    background: #f8f9fa;
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
+.submit-right{
+    background:white;
+    border-radius:20px;
+    
 }
-.register-left img{
-    margin-top: 15%;
+.submit-left img{
+    margin-top: 40%;
     margin-bottom: 5%;
-    width: 25%;
+    width: 35%;
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 1s infinite  alternate;
 }
@@ -73,28 +75,30 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
 }
-.register-left p{
+.submit-left p{
     font-weight: lighter;
     padding: 12%;
     margin-top: -9%;
 }
-.register .register-form{
+.submit .submit-form{
     padding: 10%;
+    padding-top:5%;
+    padding-right:3%;
     margin-top: 10%;
 }
-.btnRegister{
+.btnsubmit{
     float: right;
-    margin-top: 10%;
+    margin-top: 15%;
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
-    background: #0062cc;
+    padding: 1.5%;
+    background: #021d32;
     color: #fff;
     font-weight: 600;
-    width: 50%;
+    width: 20%;
     cursor: pointer;
 }
-.register .nav-tabs{
+.submit .nav-tabs{
     margin-top: 3%;
     border: none;
     background: #0062cc;
@@ -102,7 +106,7 @@
     width: 28%;
     float: right;
 }
-.register .nav-tabs .nav-link{
+.submit .nav-tabs .nav-link{
     padding: 2%;
     height: 34px;
     font-weight: 600;
@@ -110,136 +114,127 @@
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
 }
-.register .nav-tabs .nav-link:hover{
+.submit .nav-tabs .nav-link:hover{
     border: none;
 }
-.register .nav-tabs .nav-link.active{
+.submit .nav-tabs .nav-link.active{
     width: 100px;
     color: #0062cc;
     border: 2px solid #0062cc;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
 }
-.register-heading{
+.submit-heading{
     text-align: center;
-    margin-top: 8%;
+    margin-top: 3%;
     margin-bottom: -15%;
     color: #495057;
+}
+hr.style16 { 
+  border-top: 0.5px dashed #8c8b8b; 
+} 
+hr.style16:after { 
+  display: inline-block; 
+  position: relative; 
+  top: -12px; 
+  left: 40px; 
+  padding: 0 3px; 
+  background: #f0f0f0; 
+  color: #8c8b8b; 
+  font-size: 18px; 
 }
         </style>
     </head>
     <body>
 
-            <div class="container register">
+            <div class="submit">
                 <div class="row">
-                    <div class="col-md-3 register-left">
-                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                    <div class="col-md-3 submit-left">
+                        <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
                         <h3>Welcome</h3>
                         <p>You are 30 seconds away from earning your own money!</p>
-                        <input type="submit" name="" value="Login"/><br/>
+                        <!-- <input type="submit" name="" value="Login" class="shadow-sm"/><br/> -->
                     </div>
-                    <div class="col-md-9 register-right">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
-                            </li>
-                        </ul>
+                    <div class="card col-md-9 submit-right shadow-lg">
+                       
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Apply as a Employee</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
+                                <h3 class="submit-heading ml-5">REPORT FORM</h3>
+                                
+                                
+                                <form action="{{ route('nocreport.store') }}" method="POST">
+                                @csrf
+                                
+                                <div class="submit-form">
+                                <hr class="style16 shadow-sm">
+                                
+                                    <div class="row pt-4">
+                                       
+                                            <div class="col-md-6">
+                                                <div class="form-group shadow-sm">
+                                                <select class="form-control" name="team_name">
+                                                    <option class="hidden"  selected disabled>Team Name *</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                                        </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group shadow-sm">
+                                                <select class="form-control" name="team_members_name">
+                                                    <option class="hidden"  selected disabled>Team Name *</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
 
+                                                <!-- <select class="js-example-basic-multiple form-control" name="team_members_name[]" multiple="multiple">
+                                                    <option value="AL">Alabama</option>
+                                                       
+                                                    <option value="WY">Wyoming</option>
+                                                </select> -->
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
 
+                                    <div class="row pt-3">
+                                       
+                                            <div class="col-md-12">
+                                            <textarea class="form-control shadow-sm" name="description" id="summary-ckeditor" rows="7" placeholder="Summer Note *"></textarea>
+                                            </div>
+                                          
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+
+                                    <div class="row pt-3">
+                                       
+                                            <div class="col-md-4">
+                                                <div class="form-group shadow-sm">
+                                                    <input type="date" class="form-control" id="" name="report_date">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group shadow-sm">
+                                                    <input class="timepicker form-control" placeholder="Start Time *" type="text" name="report_start_time">
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group shadow-sm">
+                                                    <input class="timepicker form-control"  placeholder="End Time *" type="text" name="report_end_time">
+                                                </div>
+                                            </div>
+                                        
                                     </div>
+
+                                    <input type="submit" class="btnsubmit mt-3 float-right shadow"  value="submit"/>
+
                                 </div>
+                                </form>
+
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -247,41 +242,17 @@
             </div>
         
 
-        <form action="{{ route('nocreport.store') }}" method="POST">
-            @csrf
-  <div class="form-group">
- 
-  <div class="form-group">
-    <label for="">Team Name</label>
-    <input type="text" class="form-control" id="" name="team_name">
-  </div>
-  <div class="form-group">
-    <label for="">Member Name</label>
-    <input type="text" class="form-control" id="" name="team_members_name">
-  </div>
-  <div class="form-group">
-    <label for="">Description</label>
-    <input type="text" class="form-control" id="" name="description">
-  </div>
-  <div class="form-group">
-    <label for="">Report Date</label>
-    <input type="date" class="form-control" id="" name="report_date">
-  </div>
-  <div class="form-group">
-    <label for="">Start Time</label>
-    <input class="timepicker form-control" type="text" name="report_start_time">
-  </div>
-  <div class="form-group">
-    <label for="">End Time</label>
-    <input class="timepicker form-control" type="text" name="report_end_time">
-  </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+       
     </body>
-
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <!-- select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script type="text/javascript">
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
 
+    CKEDITOR.replace('summary-ckeditor');
 $('.timepicker').datetimepicker({
 
     format: 'HH:mm:ss'
