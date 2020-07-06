@@ -41,7 +41,7 @@
         <!-- Styles -->
         <style>
         .submit{
-    background:url('image/cover.jpg');
+    background:url('image/cover5.jpg');
     background-size:cover;
     padding: 6%;
 }
@@ -182,7 +182,7 @@ hr.style16:after {
                                                 <div class="form-group shadow-sm">
                                                 <select class="form-control" name="team_name">
                                                     <option class="hidden"  selected disabled>Team Name *</option>
-                                                    <option>1</option>
+                                                    <option>NOC Team 3</option>
                                                     <option>2</option>
                                                     <option>3</option>
                                                 </select>
@@ -191,8 +191,8 @@ hr.style16:after {
                                             <div class="col-md-6">
                                                 <div class="form-group shadow-sm">
                                                 <select class="form-control" name="team_members_name">
-                                                    <option class="hidden"  selected disabled>Team Name *</option>
-                                                    <option>1</option>
+                                                    <option class="hidden"  selected disabled>Team Member Name *</option>
+                                                    <option>Kyaw Phyo Linn, Thu Ra Aung, Chan Nyein, Hinn Ei Shwe</option>
                                                     <option>2</option>
                                                     <option>3</option>
                                                 </select>
