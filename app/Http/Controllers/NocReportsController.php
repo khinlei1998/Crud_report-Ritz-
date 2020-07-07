@@ -84,7 +84,7 @@ class NocReportsController extends Controller
 
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
-       $pdf = PDF::loadView('reporttable.reportdetail', ['reportsdetail' => $reportsdetail,'button'=>false,'encode_image'=>$encode_image]);
+       $pdf = PDF::loadView('reporttable.pdf_report', ['reportsdetail' => $reportsdetail,'button'=>false,'encode_image'=>$encode_image]);
        return $pdf->download('itsolutionstuff.pdf');
     
   
