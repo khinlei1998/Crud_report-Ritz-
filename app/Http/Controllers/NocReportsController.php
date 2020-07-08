@@ -21,6 +21,7 @@ class NocReportsController extends Controller
         $allreports=noc_reports::all();
  
         return view('reporttable.allreport',compact(['allreports']));
+
     }
 
     /**
@@ -88,7 +89,7 @@ class NocReportsController extends Controller
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
        $pdf = PDF::loadView('reporttable.pdf_report', ['reportsdetail' => $reportsdetail,'button'=>false,'encode_image'=>$encode_image]);
-       return $pdf->download('itsolutionstuff.pdf');
+       return $pdf->download('daily_report.pdf');
     
   
     }
@@ -149,9 +150,14 @@ class NocReportsController extends Controller
      * @param  \App\noc_reports  $noc_reports
      * @return \Illuminate\Http\Response
      */
-    public function destroy(noc_reports $noc_reports)
+    public function destroy($id)
     {
-        //
+      
+        $noc_report = noc_reports::findOrFail($id);
+        
+        $noc_report->delete();
+        return back()->with("notification", 'Deleted Successfully');
+      
     }
 
     public function getuser(Request $request)
