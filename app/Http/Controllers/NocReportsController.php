@@ -24,7 +24,7 @@ class NocReportsController extends Controller
      ->select('noc_reports.*','teams.team_name')
      ->get();
         return view('reporttable.allreport',compact(['allreports']));
-        
+
     }
 
     /**
@@ -92,7 +92,7 @@ class NocReportsController extends Controller
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
        $pdf = PDF::loadView('reporttable.pdf_report', ['reportsdetail' => $reportsdetail,'button'=>false,'encode_image'=>$encode_image]);
-       return $pdf->download('itsolutionstuff.pdf');
+       return $pdf->download('daily_report.pdf');
     
   
     }

@@ -63,7 +63,7 @@
 }
 .submit-left img{
     margin-bottom: 3%;
-    width: 5%;
+    width: 7%;
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 1s infinite  alternate;
 }
@@ -161,38 +161,47 @@ div.dataTables_wrapper div.dataTables_paginate {
     </head>
 
     <body>
-  <!--appeear create successfully & mhane  twar ml-->
-
-
+    
 
 
     <div class="submit">
+    
+
                 <div class="row p-4">
                     <div class="col-md-12 submit-left">
                         <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
-                       
+                        
                     </div>
                     <div class="col-md-12 submit-right m-5">
-                        <h3 class="text-center">DETAIL PAGE</h3>
+                        <h3 class="text-center">All Report Lists
+                        <span><img src="{{asset('/image/list.png')}}" alt="logo" width="50"/></span>
+                        </h3>
+
                         <hr class="style16 shadow-sm">
 
+                      
                         @if(Session::has('notification'))
-                            <div class="row notification">
-                            <div class="col-md-8">
+                            <div class="row notification" style="text-align:center;">
+                            
+                            <div class="alert alert-danger col-md-12 alert-dismissible" role="alert">
+                            {{Session::get('notification')}}
+                            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+                           
+                            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button> -->
                             </div>
-                            <div class="alert alert-success alert-dismissible col-md-4" role="alert">
-                                    {{Session::get('notification')}}
-                                    <button type="button"  id="close" class="close" data-dismiss="alert" aria-label="Close"></button>
+                            </div>
 
-                                    
-                                    </button>
-                            </div>  
-                            </div>
+                            <!-- <div class="alert alert-warning alert-dismissible" role="alert">
+                            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+                            <strong>Warning!</strong> Still on beta stage.
+                            </div> -->
                         @endif
                         <table id="example" class="table table-striped table-bordered p-5" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No</th>
                                                 <th>Team Name</th>
                                                 <th>Team Member Name</th>
                                                 <th>Description</th>
@@ -207,7 +216,7 @@ div.dataTables_wrapper div.dataTables_paginate {
                                             @foreach ($allreports as $report)
                                             <tr>
 
-                                                <td>{{$report->id}}</td>
+                                                <td>{{$loop->iteration}}</td>
                                                 <td>{{$report->team_name}}</td>
                                                 <td>{{$report->team_members_name}}</td>
                                                 <td>{!! $report->description !!}</td>
@@ -216,12 +225,20 @@ div.dataTables_wrapper div.dataTables_paginate {
                                                 <td>{{$report->report_end_time}}</td>
                                                 <td>
                                                     <a href="{{ route('nocreport.show',$report->id)}}">
-                                                        <button type="button" class="btn btn-primary float-right">Detail</button>
+                                                        <button type="submit" class="btn btn-primary float-right shadow" style="margin-bottom:3px;">
+                                                        <span><img src="{{asset('/image/detail3.png')}}" alt="logo" width="20" style="margin-bottom:3px;"/>&nbsp;Detail&nbsp;</span>
+                                                        </button>
                                                     </a>
+                                                    <br>
+
                                                     <form method="POST" action="{{ route('nocreport.destroy',$report->id)}}" >
                                                         {{ csrf_field() }}
                                                         {{ method_field('DELETE') }}
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                      
+                                                        <button type="submit" class="btn btn-danger float-right shadow">
+                                                        <span><img src="{{asset('/image/delete2.png')}}" alt="logo" width="20" style="margin-bottom:3px;"/>&nbsp;Delete</span>
+                                                        </button>
+                                                        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
                                                     </form>
                                                 </td>
                                             
@@ -232,7 +249,7 @@ div.dataTables_wrapper div.dataTables_paginate {
                                         <tfoot>
                                             
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No</th>
                                                 <th>Team Name</th>
                                                 <th>Team Member Name</th>
                                                 <th>Description</th>

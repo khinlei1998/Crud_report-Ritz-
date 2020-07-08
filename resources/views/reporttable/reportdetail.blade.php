@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+
 
         <!-- timepicker -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -181,6 +181,7 @@
                                         <p style="line-height:2px;">With Best Regards,</p>
                                         <p>{{ $reportD->team_name }}</p>
                                         </div>
+
                                     </div>
                                    
                                
@@ -213,6 +214,3 @@
      
         </table>
 </body>
-
-
-  

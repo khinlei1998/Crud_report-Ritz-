@@ -84,7 +84,7 @@
     margin-top: -9%;
 }
 .submit .submit-form{
-    padding: 10%;
+    padding: 3%;
     padding-top:5%;
     padding-right:3%;
     margin-top: 10%;
@@ -92,6 +92,7 @@
 .btnsubmit{
     float: right;
     margin-top: 15%;
+    margin-bottom:3%;
     border: none;
     border-radius: 1.5rem;
     padding: 1.5%;
@@ -194,14 +195,19 @@ hr.style16:after {
                     <div class="col-md-3 submit-left">
                         <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
                         <h3>Welcome</h3>
-                        <p>You are 30 seconds away from earning your own money!</p>
-                        <!-- <input type="submit" name="" value="Login" class="shadow-sm"/><br/> -->
+                        <p>Here is a Daily Report Generator</p>
+                        <!-- <a href="{{ route('nocreport.index') }}" type="submit" name="" value="View All Report" class="shadow-sm"></a><br/> -->
+                        <a href="{{ route('nocreport.index') }}">
+                            <input  type="submit" name="" value="View All Report" class="shadow-sm">
+                        </a><br>
                     </div>
                     <div class="card col-md-9 submit-right shadow-lg">
                        
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="submit-heading ml-5">REPORT FORM</h3>
+                                <h3 class="submit-heading ml-3">Report Form
+                                <span><img src="{{asset('/image/form.png')}}" alt="logo" width="50"/></span>
+                                </h3>
                                 
                                 
                                 <form action="{{ route('nocreport.store') }}" method="POST">
@@ -293,7 +299,8 @@ hr.style16:after {
                                         
                                     </div>
 
-                                    <input type="submit" class="btnsubmit mt-3 float-right shadow" id="btnsubmit"  value="submit"/>
+                                    <input type="submit" class="btnsubmit mt-3 float-right shadow" id="btnsubmit"  value="submit">
+                                  
 
                                 </div>
                                 </form>
