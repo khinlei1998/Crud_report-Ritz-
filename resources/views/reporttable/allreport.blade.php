@@ -161,7 +161,9 @@ div.dataTables_wrapper div.dataTables_paginate {
                        
                     </div>
                     <div class="col-md-12 submit-right m-5">
-                        <h3 class="text-center">DETAIL PAGE</h3>
+                        <h3 class="text-center">All Report Lists
+                        <span><img src="{{asset('/image/list.png')}}" alt="logo" width="50"/></span>
+                        </h3>
                         <hr class="style16 shadow-sm">
                         <table id="example" class="table table-striped table-bordered p-5" style="width:100%">
                                         <thead>
@@ -190,7 +192,9 @@ div.dataTables_wrapper div.dataTables_paginate {
                                                 <td>{{$report->report_end_time}}</td>
                                                 <td>
                                                     <a href="{{ route('nocreport.show',$report->id)}}">
-                                                        <button type="button" class="btn btn-primary float-right">Detail</button>
+                                                        <button type="button" class="btn btn-primary float-right shadow" style="background-color:#021d32;">
+                                                        <span><img src="{{asset('/image/detail3.png')}}" alt="logo" width="20" style="margin-bottom:3px;"/>&nbsp;Detail</span>
+                                                        </button>
                                                     </a>
                                                 </td>
                                             

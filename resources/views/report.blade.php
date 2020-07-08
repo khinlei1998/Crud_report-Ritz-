@@ -24,13 +24,8 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
         
-        <title>Summernote</title>
-        
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
+     
+
 
         <!-- select2 -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
@@ -89,7 +84,7 @@
     margin-top: -9%;
 }
 .submit .submit-form{
-    padding: 10%;
+    padding: 3%;
     padding-top:5%;
     padding-right:3%;
     margin-top: 10%;
@@ -97,6 +92,7 @@
 .btnsubmit{
     float: right;
     margin-top: 15%;
+    margin-bottom:3%;
     border: none;
     border-radius: 1.5rem;
     padding: 1.5%;
@@ -151,6 +147,45 @@ hr.style16:after {
   color: #8c8b8b; 
   font-size: 18px; 
 }
+.bootstrap-datetimepicker-widget .dropdown-menu{
+    z-index:99999999;
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('{{ public_path('font/glyphicons-halflings-regular.eot') }}');
+  src: url('./font/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('./font/glyphicons-halflings-regular.woff2') format('woff2'), url('../font/glyphicons-halflings-regular.woff') format('woff'), url('./font/glyphicons-halflings-regular.ttf') format('truetype'), url('./font/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-time:before {
+  content: "\e023";
+}
+.glyphicon-chevron-left:before {
+  content: "\e079";
+}
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+.glyphicon-calendar:before {
+  content: "\e109";
+}
+.glyphicon-chevron-up:before {
+  content: "\e113";
+}
+.glyphicon-chevron-down:before {
+  content: "\e114";
+}
         </style>
     </head>
     <body>
@@ -160,14 +195,19 @@ hr.style16:after {
                     <div class="col-md-3 submit-left">
                         <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
                         <h3>Welcome</h3>
-                        <p>You are 30 seconds away from earning your own money!</p>
-                        <!-- <input type="submit" name="" value="Login" class="shadow-sm"/><br/> -->
+                        <p>Here is a Daily Report Generator</p>
+                        <!-- <a href="{{ route('nocreport.index') }}" type="submit" name="" value="View All Report" class="shadow-sm"></a><br/> -->
+                        <a href="{{ route('nocreport.index') }}">
+                            <input  type="submit" name="" value="View All Report" class="shadow-sm">
+                        </a><br>
                     </div>
                     <div class="card col-md-9 submit-right shadow-lg">
                        
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="submit-heading ml-5">REPORT FORM</h3>
+                                <h3 class="submit-heading ml-3">Report Form
+                                <span><img src="{{asset('/image/form.png')}}" alt="logo" width="50"/></span>
+                                </h3>
                                 
                                 
                                 <form action="{{ route('nocreport.store') }}" method="POST">
@@ -185,8 +225,8 @@ hr.style16:after {
                                                     @php
                                                     $teams=DB::table('teams')->get();
                                                     @endphp
-                                                    <select class="form-control" name="team_name" id="team_id" >
-                                                  
+                                                    <select class="form-control" name="team_name" id="team_id"  >
+                                                        <option selected disabled>Select Team Name <label style="color:red;">*</label></option>
                                                         @foreach($teams as $team)
                                                             <option value="{{$team->id}}">{{$team-> team_name}}</option>
                                                         @endforeach
@@ -200,11 +240,12 @@ hr.style16:after {
                                                     <select class="js-example-basic-multiple form-control" name="team_members_name[]" id="t_member_id"  multiple="multiple">
                                                 
                                                     </select>
-                                                    @error('team_members_name')
-                                                    <div class="text-danger" style="">{{ $message }}</div>
-                                                    @enderror
+                                                    
                                                  
                                                 </div>
+                                                @error('team_members_name')
+                                                    <div class="text-danger" style="margin-top:8px;line-height:0px;">{{ $message }}</div>
+                                                    @enderror
                                               
                                             </div>
                                         
@@ -222,36 +263,44 @@ hr.style16:after {
                                     </div>
 
                                     <div class="row pt-3">
+                                           
                                        
-                                            <div class="col-md-4">
-                                                <div class="form-group shadow-sm">
-                                                    <input type="date" class="form-control" id="" name="report_date">
+                                            <div class="col-md-4" >
+                                                <div class="form-group shadow-sm" >
+                                                    
+                                                    <input type="date" class="form-control"  name="report_date">
+                                                    
+                                                </div>
                                                     @error('report_date')
-                                                    <div class="text-danger" style="">{{ $message }}</div>
+                                                    <p class="text-danger" style="margin-top:0px;line-height:0px;">{{ $message }}</p>
                                                     @enderror
-                                                </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group shadow-sm">
+                                            <div class="col-md-4" >
+                                                <div class="form-group shadow-sm" style="position:relative">
+                                                    <label for="report_start_time" class="sr-only">Start Date</label>
                                                     <input class="timepicker form-control" placeholder="Start Time *" type="text" name="report_start_time">
-                                                    @error('report_start_time')
-                                                    <div class="text-danger" style="">{{ $message }}</div>
-                                                    @enderror
+                                                    
                                                 </div>
+                                                    @error('report_start_time')
+                                                    <div class="text-danger" style="margin-top:0px;line-height:0px;">{{ $message }}</div>
+                                                    @enderror
                                                
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-group shadow-sm">
+                                                <div class="form-group shadow-sm" style="position:relative">
+                                                    <label for="report_start_time" class="sr-only">Start Date</label>
                                                     <input class="timepicker form-control"  placeholder="End Time *" type="text" name="report_end_time">
-                                                    @error('report_end_time')
-                                                    <div class="text-danger" style="">{{ $message }}</div>
-                                                    @enderror
+                                                    
                                                 </div>
+                                                    @error('report_end_time')
+                                                    <div class="text-danger" style="margin-top:0px;line-height:0px;">{{ $message }}</div>
+                                                    @enderror
                                             </div>
                                         
                                     </div>
 
-                                    <input type="submit" class="btnsubmit mt-3 float-right shadow" id="btnsubmit"  value="submit"/>
+                                    <input type="submit" class="btnsubmit mt-3 float-right shadow" id="btnsubmit"  value="submit">
+                                  
 
                                 </div>
                                 </form>
@@ -278,20 +327,32 @@ hr.style16:after {
 
 //     format: 'HH:mm:ss'
     $(document).ready(function() {
-         $('.js-example-basic-multiple').select2();
+         $('.js-example-basic-multiple').select2({
+            placeholder: "Select Team Member *",
+            allowClear: true
+        });
     });
 
          CKEDITOR.replace('summary-ckeditor');
+
         $('.timepicker').datetimepicker({
-
+            icons: {
+                time: 'glyphicon glyphicon-time',
+                date: 'glyphicon glyphicon-calendar',
+                up: 'glyphicon glyphicon-chevron-up',
+                down: 'glyphicon glyphicon-chevron-down',
+                previous: 'glyphicon glyphicon-chevron-left',
+                next: 'glyphicon glyphicon-chevron-right',
+                today: 'glyphicon glyphicon-screenshot',
+                clear: 'glyphicon glyphicon-trash'
+            },
             format: 'HH:mm:ss'
-
         }); 
 
 
                 $('#team_id').on('change', function () {
                     $('#t_member_id').empty();
-                    $("#t_member_id").append(new Option("","",false,false));
+                    // $("#t_member_id").append(new Option("","",false,false));
                     var t_member = $('#team_id').find(':selected').val();
                     console.log("N blade: [user/create] component :[User dropdown] from:user.create Selected Team =>"+t_member);
                     getAssibleUser(t_member);
