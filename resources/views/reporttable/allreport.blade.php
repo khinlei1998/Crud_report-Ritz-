@@ -153,6 +153,20 @@ div.dataTables_wrapper div.dataTables_paginate {
         </style>
     </head>
     <body>
+    @if(Session::has('notification'))
+        <div class="row notification">
+        <div class="col-md-8">
+        </div>
+        <div class="alert alert-success col-md-4"role="alert">
+        {{Session::get('notification')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        </div>
+    @endif
+
+
 
     <div class="submit">
                 <div class="row p-4">
@@ -192,6 +206,11 @@ div.dataTables_wrapper div.dataTables_paginate {
                                                     <a href="{{ route('nocreport.show',$report->id)}}">
                                                         <button type="button" class="btn btn-primary float-right">Detail</button>
                                                     </a>
+                                                    <form method="POST" action="{{ route('nocreport.destroy',$report->id)}}" >
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
                                                 </td>
                                             
                                             </tr>
@@ -268,6 +287,7 @@ $('.timepicker').datetimepicker({
     format: 'HH:mm:ss'
 
 }); 
+
 
 
 </script>  

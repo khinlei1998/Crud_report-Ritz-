@@ -192,9 +192,6 @@
                             <a href="{{ url('/pdf/'. $reportsdetail->id ) }}" data-toggle="tooltip" data-placement="top" title="Click Here to Download as PDF" >
                              
                                 <img src="{{asset('image/button.png')}}" width="170" height="40">
-                              
-
-                                
                              </a>
                              @endif
                             
