@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PDF;
 use App\teams_members;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class NocReportsController extends Controller
 {
@@ -17,8 +18,11 @@ class NocReportsController extends Controller
      */
     public function index()
     {
-        $allreports=noc_reports::all();
- 
+      
+        $allreports=DB::table('noc_reports')
+     ->join('teams', 'teams.id', '=', 'noc_reports.team_name')
+     ->select('noc_reports.*','teams.team_name')
+     ->get();
         return view('reporttable.allreport',compact(['allreports']));
         
     }
@@ -115,9 +119,18 @@ class NocReportsController extends Controller
       
         $encode_image=base64_encode($path);
         // return($encode_image);
-        $reportsdetail=noc_reports::where('id',$id)->first();
+         $reportsdetail=noc_reports::where('id',$id)->first();
+        //  dd($reportsdetail);
+        $reportD=DB::table('noc_reports')
+     ->join('teams', 'teams.id', '=', 'noc_reports.team_name')
+     ->select('noc_reports.*','teams.team_name')
+     ->where('teams.id',$reportsdetail->team_name)
+     ->where('noc_reports.id',$reportsdetail->id)
+     ->first();
+    
+ 
         $button=true;
-       return view('reporttable.reportdetail',compact('reportsdetail','button'),['encode_image'=>$encode_image]);
+       return view('reporttable.reportdetail',compact('reportD','button'),['encode_image'=>$encode_image]);
     }
 
     /**

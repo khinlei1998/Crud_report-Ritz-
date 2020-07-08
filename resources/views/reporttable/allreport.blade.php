@@ -150,21 +150,19 @@ div.dataTables_wrapper div.dataTables_paginate {
     white-space: nowrap;
     text-align: right;
 }
+
+.notification {
+         
+         animation:fadeOut 1s linear forwards;
+         z-index: -1;
+         
+              }
         </style>
     </head>
+
     <body>
-    @if(Session::has('notification'))
-        <div class="row notification">
-        <div class="col-md-8">
-        </div>
-        <div class="alert alert-success col-md-4"role="alert">
-        {{Session::get('notification')}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        </div>
-    @endif
+  <!--appeear create successfully & mhane  twar ml-->
+
 
 
 
@@ -177,6 +175,20 @@ div.dataTables_wrapper div.dataTables_paginate {
                     <div class="col-md-12 submit-right m-5">
                         <h3 class="text-center">DETAIL PAGE</h3>
                         <hr class="style16 shadow-sm">
+
+                        @if(Session::has('notification'))
+                            <div class="row notification">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="alert alert-success alert-dismissible col-md-4" role="alert">
+                                    {{Session::get('notification')}}
+                                    <button type="button"  id="close" class="close" data-dismiss="alert" aria-label="Close"></button>
+
+                                    
+                                    </button>
+                            </div>  
+                            </div>
+                        @endif
                         <table id="example" class="table table-striped table-bordered p-5" style="width:100%">
                                         <thead>
                                             <tr>
@@ -277,7 +289,11 @@ div.dataTables_wrapper div.dataTables_paginate {
     </body>
 
     <script type="text/javascript">
+  setTimeout(Close, 4500);
 
+  function Close(){ 
+  $('.notification').remove();
+}
 $(document).ready(function() {
     $('#example').DataTable();
 } );
@@ -286,7 +302,8 @@ $('.timepicker').datetimepicker({
 
     format: 'HH:mm:ss'
 
-}); 
+});
+
 
 
 

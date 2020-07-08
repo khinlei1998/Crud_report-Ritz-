@@ -167,19 +167,19 @@
                                 
                                     <div class="row" style="max-width:800px;">
                                         <div class="col-md-12" style="max-width:800px;">
-                                        <p>{!! $reportsdetail->description !!}</p>
+                                        <p>{!! $reportD->description !!}</p>
                                         </div>
                                     </div>
                                     <div class="row" style="max-width:800px;margin-top:15px;">
                                         <div class="col-md-12" style="max-width:800px;">
                                         <p>Team Member</p>
-                                        <p>{{ $reportsdetail->team_members_name }}</p>
+                                        <p>{{ $reportD->team_members_name }}</p>
                                         </div>
                                     </div>
                                     <div class="row" style="max-width:800px;margin-top:15px;">
                                         <div class="col-md-12" style="max-width:800px;">
                                         <p style="line-height:2px;">With Best Regards,</p>
-                                        <p>{{ $reportsdetail->team_name }}</p>
+                                        <p>{{ $reportD->team_name }}</p>
                                         </div>
                                     </div>
                                    
@@ -189,7 +189,7 @@
                         <tr>
                             <td bgcolor="#ffffff" align="center" height="80px;">
                             @if($button)
-                            <a href="{{ url('/pdf/'. $reportsdetail->id ) }}" data-toggle="tooltip" data-placement="top" title="Click Here to Download as PDF" >
+                            <a href="{{ url('/pdf/'. $reportD->id ) }}" data-toggle="tooltip" data-placement="top" title="Click Here to Download as PDF" >
                              
                                 <img src="{{asset('image/button.png')}}" width="170" height="40">
                              </a>
