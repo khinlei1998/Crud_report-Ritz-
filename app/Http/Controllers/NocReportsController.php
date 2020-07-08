@@ -109,6 +109,12 @@ class NocReportsController extends Controller
         return view("views.detail",compact('reports'));
     }
 
+    public function daily_rp()
+    {
+        $reports = noc_reports::all();
+        return view("report",compact('reports'));
+    }
+
    
       
     public function show($id)

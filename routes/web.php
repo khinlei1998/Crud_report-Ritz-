@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('report');
+    return view('rp_index');
 });
 Route::resource('/nocreport','NocReportsController');
 
 // Route::get('/all_reports','NocReportsController@showall');
+
+Route::get('/daily_rp','NocReportsController@daily_rp');
 
 Route::get('/reportdetail','NocReportsController@all');
 Route::get('/pdf/{id}', 'NocReportsController@fun_pdf');
