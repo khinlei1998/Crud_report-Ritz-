@@ -347,7 +347,7 @@
                     <li><b>Free</b>Email support</li>
                     <li><b>Help center access</b></li> -->
                     </ul>
-                    <a href="{{ url('daily_rp') }}" style="text-decoration:none;">
+                    <a href="{{ url('gooddelivery') }}" style="text-decoration:none;">
                     <button type="submit" class="btn btn-lg btn-block  btn-custom5 shadow">View Form</button>
                     </a>
                 </div>

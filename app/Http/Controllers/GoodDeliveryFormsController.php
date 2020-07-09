@@ -14,7 +14,7 @@ class GoodDeliveryFormsController extends Controller
      */
     public function index()
     {
-        //
+        return view('gooddelivery.gooddelivery');
     }
 
     /**

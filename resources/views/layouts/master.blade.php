@@ -41,10 +41,21 @@
     </head>
     <body>
 
+    <div class="submit">
+                <div class="row">
+                    <div class="col-md-3 submit-left">
+                        <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
+                        <h3>Welcome</h3>
+                        <p>Here is a Report Generator</p>
+                        <!-- <a href="{{ route('nocreport.index') }}" type="submit" name="" value="View All Report" class="shadow-sm"></a><br/> -->
+                        <a href="{{ route('nocreport.index') }}">
+                            <input  type="submit" name="" value="View All Report" class="shadow-sm">
+                        </a><br>
+                    </div>
      @yield('content')
-        
-
-
+                </div>
+    </div>
+     
     </body>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <!-- select2 -->

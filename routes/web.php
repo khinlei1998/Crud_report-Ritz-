@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('rp_index');
 });
 Route::resource('/nocreport','NocReportsController');
+Route::resource('/gooddelivery','GoodDeliveryFormsController');
 
 // Route::get('/all_reports','NocReportsController@showall');
 
