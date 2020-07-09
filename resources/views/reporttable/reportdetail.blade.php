@@ -205,8 +205,9 @@
                         <tr>
                             <td bgcolor="#19233e" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                                 <h2 style="font-size: 20px; font-weight: 400; color: white; margin: 0;">Want to go back ?</h2>
-                                <p style="margin: 0;">
-                                <a href="{{route('nocreport.index')}}"  style="color: #FFA73B;">Click Here</a></p>
+                                
+                                <p style="margin: 0;"><a href="{{route('nocreport.index')}}"  style="color: #FFA73B;">Click Here</a></p>
+                               
                             </td>
                         </tr>
                     </table>

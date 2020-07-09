@@ -18,13 +18,11 @@ class NocReportsController extends Controller
      */
     public function index()
     {
-      
         $allreports=DB::table('noc_reports')
      ->join('teams', 'teams.id', '=', 'noc_reports.team_name')
      ->select('noc_reports.*','teams.team_name')
      ->get();
         return view('reporttable.allreport',compact(['allreports']));
-
     }
 
     /**
@@ -109,6 +107,12 @@ class NocReportsController extends Controller
         return view("views.detail",compact('reports'));
     }
 
+    public function daily_rp()
+    {
+        $reports = noc_reports::all();
+        return view("report",compact('reports'));
+    }
+
    
       
     public function show($id)
@@ -116,7 +120,6 @@ class NocReportsController extends Controller
         // dd($id);
         // $reportsdetail=DB::table('nocreports') ->where('id', $id);
       $path =file_get_contents(base_path().'/public/image/ritz_logo.png');
-      
         $encode_image=base64_encode($path);
         // return($encode_image);
          $reportsdetail=noc_reports::where('id',$id)->first();
@@ -127,8 +130,6 @@ class NocReportsController extends Controller
      ->where('teams.id',$reportsdetail->team_name)
      ->where('noc_reports.id',$reportsdetail->id)
      ->first();
-    
- 
         $button=true;
        return view('reporttable.reportdetail',compact('reportD','button'),['encode_image'=>$encode_image]);
     }
