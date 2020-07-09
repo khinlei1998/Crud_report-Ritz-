@@ -24,10 +24,14 @@
             margin-bottom:1.4rem;
             }
             .pricing-divider {
+            width:300px;
             border-radius: 20px;
             background: #C64545;
             padding: 1em 0 4em;
             position: relative;
+            }
+            .card-body{
+            width:300px;
             }
             .blue .pricing-divider{
             background: #2D5772; 
@@ -65,7 +69,7 @@
             
             .pricing-divider-img {
                 position: absolute;
-                bottom: -2px;
+                bottom: -30px;
                 left: 0;
                 width: 100%;
                 height: 80px;
@@ -139,7 +143,7 @@
     </head>
     <body>
 
-        <div class="container-fluid bgmain p-5">
+        <div class="container-fluid bgmain p-5 justify-content-center">
             <div class="row pt-2 align-center">
                     <div class="col-md-12 submit-left">
                         <center><img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" /></center>
@@ -147,13 +151,13 @@
                        
                     </div>
             </div>
-            <div class="row m-auto text-center w-75">
+            <div class="row m-auto text-center pl-5 pr-0 pt-3">
                 
-                <div class="col-4 princing-item red">
+                <div class="col-4 princing-item red pl-4">
                 <div class="pricing-divider ">
-                    <h3 class="text-light p-5">Daily Report Form</h3>
+                    <h4 class="text-light p-0 mt-3">Daily Report Form</h4>
                     <!-- <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">$</span> 120 <span class="h5">/mo</span></h4> -->
-                    <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='20px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+                    <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='10px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
                             <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
                         c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
                             <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
@@ -165,7 +169,7 @@
                     </svg>
                 </div>
                 <div class="card-body bg-white mt-0 shadow">
-                <ul class="list-unstyled mb-5 position-relative">
+                <ul class="list-unstyled mb-0 mt-0 position-relative">
                     <li>Total <b>53 </b>forms included</li>
                     <!-- <li><b>10 GB</b> of storage</li>
                     <li><b>Free</b>Email support</li>
@@ -181,9 +185,9 @@
 
                 
                 
-                <div class="col-4 princing-item blue">
+                <div class="col-4 princing-item blue pl-4">
                 <div class="pricing-divider ">
-                    <h3 class="text-light p-5">IT Service Report</h3>
+                    <h3 class="text-light p-0 mt-3">IT Service Report</h3>
                     <!-- <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">$</span> 250 <span class="h5">/mo</span></h4> -->
                     <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
                             <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
@@ -198,7 +202,7 @@
                 </div>
 
                 <div class="card-body bg-white mt-0 shadow">
-                    <ul class="list-unstyled mb-5 position-relative">
+                    <ul class="list-unstyled mb-0 mt-0 position-relative">
                     <li>Total <b>100 </b>forms included</li>
                     <!-- <li><b>10 GB</b> of storage</li>
                     <li><b>Free</b>Email support</li>
@@ -215,9 +219,9 @@
                 
                 
                 
-                <div class="col-4 princing-item green">
+                <div class="col-4 princing-item green pl-4">
                 <div class="pricing-divider ">
-                    <h3 class="text-light p-5">IT Service Request</h3>
+                    <h3 class="text-light p-0 mt-3">IT Service Request</h3>
                     <!-- <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">$</span> 450 <span class="h5">/mo</span></h4> -->
                     <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
                             <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
@@ -232,7 +236,7 @@
                 </div>
 
                 <div class="card-body bg-white mt-0 shadow">
-                <ul class="list-unstyled mb-5 position-relative">
+                <ul class="list-unstyled mb-0 mt-0 position-relative">
                     <li>Total <b>73 </b>forms included</li>
                     <!-- <li><b>10 GB</b> of storage</li>
                     <li><b>Free</b>Email support</li>
@@ -243,6 +247,7 @@
                     </a>
                 </div>
                 </div>
+
                     
                 
                 
@@ -250,13 +255,14 @@
                 
                 
             </div>
-            <div class="row m-auto text-center w-75 pt-4">
+
+            <div class="row m-auto text-center pl-5 pr-0 pt-5">
                 
-                <div class="col-4 princing-item yellow">
+                <div class="col-4 princing-item yellow pl-4">
                 <div class="pricing-divider ">
-                    <h3 class="text-light p-5">Daily Report Form</h3>
+                    <h4 class="text-light p-0 mt-3">Daily Report Form</h4>
                     <!-- <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">$</span> 120 <span class="h5">/mo</span></h4> -->
-                    <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+                    <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='10px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
                             <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
                         c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
                             <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
@@ -268,7 +274,7 @@
                     </svg>
                 </div>
                 <div class="card-body bg-white mt-0 shadow">
-                <ul class="list-unstyled mb-5 position-relative">
+                <ul class="list-unstyled mb-0 mt-0 position-relative">
                     <li>Total <b>53 </b>forms included</li>
                     <!-- <li><b>10 GB</b> of storage</li>
                     <li><b>Free</b>Email support</li>
@@ -277,15 +283,16 @@
                     <a href="{{ url('daily_rp') }}" style="text-decoration:none;">
                     <button type="submit" class="btn btn-lg btn-block  btn-custom3 shadow">View Form</button>
                     </a>
+                    
                 </div>
                 </div>
             
 
                 
                 
-                <div class="col-4 princing-item purple">
+                <div class="col-4 princing-item purple pl-4">
                 <div class="pricing-divider ">
-                    <h3 class="text-light p-5">IT Service Report</h3>
+                    <h3 class="text-light p-0 mt-3">IT Service Report</h3>
                     <!-- <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">$</span> 250 <span class="h5">/mo</span></h4> -->
                     <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
                             <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
@@ -300,7 +307,7 @@
                 </div>
 
                 <div class="card-body bg-white mt-0 shadow">
-                    <ul class="list-unstyled mb-5 position-relative">
+                    <ul class="list-unstyled mb-0 mt-0 position-relative">
                     <li>Total <b>100 </b>forms included</li>
                     <!-- <li><b>10 GB</b> of storage</li>
                     <li><b>Free</b>Email support</li>
@@ -317,9 +324,9 @@
                 
                 
                 
-                <div class="col-4 princing-item pink">
+                <div class="col-4 princing-item pink pl-4">
                 <div class="pricing-divider ">
-                    <h3 class="text-light p-5">IT Service Request</h3>
+                    <h3 class="text-light p-0 mt-3">IT Service Request</h3>
                     <!-- <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">$</span> 450 <span class="h5">/mo</span></h4> -->
                     <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
                             <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
@@ -334,7 +341,7 @@
                 </div>
 
                 <div class="card-body bg-white mt-0 shadow">
-                <ul class="list-unstyled mb-5 position-relative">
+                <ul class="list-unstyled mb-0 mt-0 position-relative">
                     <li>Total <b>73 </b>forms included</li>
                     <!-- <li><b>10 GB</b> of storage</li>
                     <li><b>Free</b>Email support</li>
@@ -345,8 +352,16 @@
                     </a>
                 </div>
                 </div>
+
                     
+                
+                
+                
+                
+                
             </div>
+
+            
         </div>
 
        
