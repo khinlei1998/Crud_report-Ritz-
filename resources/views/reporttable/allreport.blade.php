@@ -204,7 +204,7 @@ div.dataTables_wrapper div.dataTables_paginate {
                                                 <th>No</th>
                                                 <th>Team Name</th>
                                                 <th>Team Member Name</th>
-                                                <th>Description</th>
+                                                <th>Activities</th>
                                                 <th>Report Date</th>
                                                 <th>Start Time</th>
                                                 <th>End Time</th>
@@ -252,7 +252,7 @@ div.dataTables_wrapper div.dataTables_paginate {
                                                 <th>No</th>
                                                 <th>Team Name</th>
                                                 <th>Team Member Name</th>
-                                                <th>Description</th>
+                                                <th>Activities</th>
                                                 <th>Report Date</th>
                                                 <th>Start Time</th>
                                                 <th>End Time</th>
