@@ -1,175 +1,14 @@
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
+@section('allreport')
+    <link href="style2.css" rel="stylesheet">
 
-        <title>Laravel</title>
-
-        <!-- timepicker -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet"> -->
-
-        <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
-
-        <script type="text/javascript" src=" https://code.jquery.com/jquery-3.5.1.js"></script>
-
-        <script type="text/javascript" src=" https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-.submit{
-    background:url('image/cover5.jpg');
-    background-size:cover;
-    padding: 4%;
-}
-.submit-left{
-    text-align: center;
-    color: #fff;
-}
-.submit-left input{
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
-    background: #f8f9fa;
-    font-weight: bold;
-    color: #383d41;
-    margin-top: 0%;
-    margin-bottom: 8%;
-    cursor: pointer;
-    shadow:
-}
-.submit-right{
-    background:white;
-    border-radius:20px;
-    
-}
-.submit-left img{
-    margin-bottom: 3%;
-    width: 7%;
-    -webkit-animation: mover 2s infinite  alternate;
-    animation: mover 1s infinite  alternate;
-}
-@-webkit-keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-}
-@keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-}
-/* .submit-left p{
-    font-weight: lighter;
-    padding-bottom:6px;
-} */
-
-.submit-left h3{
-    font-weight: lighter;
-    padding-bottom:10px;
-}
-.submit .submit-form{
-    padding: 0%;
-    padding-top:5%;
-    padding-right:3%;
-    margin-top: 10%;
-}
-.btnsubmit{
-    float: right;
-    margin-top: 15%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 1.5%;
-    background: #0062cc;
-    color: #fff;
-    font-weight: 600;
-    width: 20%;
-    cursor: pointer;
-}
-.submit .nav-tabs{
-    margin-top: 3%;
-    border: none;
-    background: #0062cc;
-    border-radius: 1.5rem;
-    width: 28%;
-    float: right;
-}
-.submit .nav-tabs .nav-link{
-    padding: 2%;
-    height: 34px;
-    font-weight: 600;
-    color: #fff;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-}
-.submit .nav-tabs .nav-link:hover{
-    border: none;
-}
-.submit .nav-tabs .nav-link.active{
-    width: 100px;
-    color: #0062cc;
-    border: 2px solid #0062cc;
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-}
-.submit-heading{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: -15%;
-    color: #495057;
-}
-label{
-    margin-top:2%;
-    margin-bottom:4%;
-    text-align:center;
-}
-div.dataTables_wrapper div.dataTables_info {
-    padding-top: 1.85em;
-    padding-bottom: 1.85em;
-    white-space: nowrap;
-}
-div.dataTables_wrapper div.dataTables_paginate {
-    padding-top: 1.85em;
-    padding-bottom: 1.85em;
-    white-space: nowrap;
-    text-align: right;
-}
-
-.notification {
-         
-         animation:fadeOut 1s linear forwards;
-         z-index: -1;
-         
-              }
-        </style>
-    </head>
-
-    <body>
+    <div class="submit" >
     
 
-
-    <div class="submit">
-    
-
-                <div class="row p-4">
+                <div class="row p-4" height="300px;">
                     <div class="col-md-12 submit-left">
-                        <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
+                        <img src="{{asset('/image/icons8-business-report-96.png')}}" alt="logo" />
                         
                     </div>
                     <div class="col-md-12 submit-right m-5">
@@ -301,9 +140,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 
            
         </div>
-          
-         
-    </body>
+
 
     <script type="text/javascript">
   setTimeout(Close, 4500);

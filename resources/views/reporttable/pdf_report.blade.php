@@ -19,7 +19,7 @@
                             <td bgcolor="#ffffff" align="center" valign="top" style="padding: 5px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
                                 <!-- <img src="https://cdn.jobnet.com.mm/images/can/200/200/201704250530386004.png" width="110" height="120" style="display: block; border: 0px;" /> -->
                              <img src="data:image;base64, {{$encode_image}}" alt="Red dot" width="80" style="margin:0px;" />
-                                <h6 style="font-size: 15px; font-weight: 500;line-height:1px;margin:3px;">Cyber Security & Management Service</h6> 
+                                <h6 style="font-size: 15px; font-weight: 500;line-height:1px;margin:3px;">Report Form</h6> 
 
                             
                             </td>

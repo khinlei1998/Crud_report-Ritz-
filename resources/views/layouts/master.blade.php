@@ -22,6 +22,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
+        <!-- logo -->
         
      
 
@@ -33,28 +34,19 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
-        <link href="style.css" rel="stylesheet">
+        
+       
 
         <!-- <style>
         
         </style> -->
     </head>
-    <body>
+    <body id="app">
+    @yield('allreport')
 
-    <div class="submit">
-                <div class="row">
-                    <div class="col-md-3 submit-left">
-                        <img src="{{asset('/image/ritz_logo2.png')}}" alt="logo" />
-                        <h3>Welcome</h3>
-                        <p>Here is a Report Generator</p>
-                        <!-- <a href="{{ route('nocreport.index') }}" type="submit" name="" value="View All Report" class="shadow-sm"></a><br/> -->
-                        <a href="{{ route('nocreport.index') }}">
-                            <input  type="submit" name="" value="View All Report" class="shadow-sm">
-                        </a><br>
-                    </div>
+    
      @yield('content')
-                </div>
-    </div>
+                
      
     </body>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
@@ -62,7 +54,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
    
 
-    <script type="text/javascript" src="style.js"></script> 
+
 
   
 

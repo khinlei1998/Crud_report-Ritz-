@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('rp_index');
+// Route::get('/', function () {
+//     return view('report');
+// });
+Route::get('/',function(){
+    return view('welcome');
 });
 Route::resource('/nocreport','NocReportsController');
 Route::resource('/gooddelivery','GoodDeliveryFormsController');
@@ -31,5 +34,9 @@ Route::post('/getUser','NocReportsController@getuser')->name('getUser');
 
 
 // Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

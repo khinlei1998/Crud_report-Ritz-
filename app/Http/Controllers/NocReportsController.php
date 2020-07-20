@@ -16,6 +16,10 @@ class NocReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $allreports=DB::table('noc_reports')
@@ -83,9 +87,10 @@ class NocReportsController extends Controller
     {
         // dd($id);
         $reportsdetail=noc_reports::where('id',$id)->first();
-        $path =file_get_contents(base_path().'/public/image/ritz_logo.png');
+        $path =file_get_contents(base_path().'/public/image/icons8-business-report-96.png');
+      
         $encode_image=base64_encode($path);
-
+        // dd($encode_image);
 
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
@@ -119,7 +124,7 @@ class NocReportsController extends Controller
     {
         // dd($id);
         // $reportsdetail=DB::table('nocreports') ->where('id', $id);
-      $path =file_get_contents(base_path().'/public/image/ritz_logo.png');
+      $path =file_get_contents(base_path().'/public/image/icons8-business-report-96.png');
         $encode_image=base64_encode($path);
         // return($encode_image);
          $reportsdetail=noc_reports::where('id',$id)->first();

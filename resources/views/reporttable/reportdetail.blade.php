@@ -151,7 +151,7 @@
                             <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
                                 <!-- <img src="https://cdn.jobnet.com.mm/images/can/200/200/201704250530386004.png" width="110" height="120" style="display: block; border: 0px;" /> -->
                              <img src="data:image;base64, {{$encode_image}}" alt="Red dot" width="100" height="90"/>
-                                <h6 style="font-size: 18px; font-weight: 500;">Cyber Security & Management Service</h6> 
+                                <h6 style="font-size: 18px; font-weight: 500;">Report Form</h6> 
 
                             
                             </td>
