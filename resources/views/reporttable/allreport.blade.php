@@ -1,19 +1,29 @@
 
 @extends('layouts.master')
 @section('allreport')
+<style>
+.btnlogout{
+   float:right;
+}
+</style>
     <link href="style2.css" rel="stylesheet">
 
     <div class="submit" >
-    
+                         <a href="{{route('logout')}}">
+                        <button type="button" class="btn btn-outline-warning btnlogout">Logout</button>
+                        </a>
 
                 <div class="row p-4" height="300px;">
                     <div class="col-md-12 submit-left">
                         <img src="{{asset('/image/icons8-business-report-96.png')}}" alt="logo" />
+                        <!-- <button type="button" class="btn btn-outline-info">Primary</button> -->
                         
                     </div>
-                    <div class="col-md-12 submit-right m-5">
+                    
+                    <div class="col-md-12 submit-right m-1">
                         <h3 class="text-center">All Report Lists
                         <span><img src="{{asset('/image/list.png')}}" alt="logo" width="50"/></span>
+                        
                         </h3>
 
                         <hr class="style16 shadow-sm">
@@ -124,19 +134,7 @@
 
                 @endforeach -->
 
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+           
 
            
         </div>

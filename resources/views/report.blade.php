@@ -10,10 +10,11 @@
                         <img src="{{asset('/image/icons8-business-report-96.png')}}" alt="logo" />
                         <h3>Welcome</h3>
                         <p>Here is a Report Generator</p>
-                        <!-- <a href="{{ route('nocreport.index') }}" type="submit" name="" value="View All Report" class="shadow-sm"></a><br/> -->
-                        <a href="{{ route('nocreport.index') }}">
+                            <a href="{{route('logout')}}">
+                                <input  type="submit" name="" value="Logout" class="shadow-sm">
+                            </a>
                           
-                        </a><br>
+                      
                     </div>
 
             
