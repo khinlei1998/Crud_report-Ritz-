@@ -129,12 +129,24 @@ class NocReportsController extends Controller
         // return($encode_image);
          $reportsdetail=noc_reports::where('id',$id)->first();
         //  dd($reportsdetail);
-        $reportD=DB::table('noc_reports')
-     ->join('teams', 'teams.id', '=', 'noc_reports.team_name')
-     ->select('noc_reports.*','teams.team_name')
-     ->where('teams.id',$reportsdetail->team_name)
-     ->where('noc_reports.id',$reportsdetail->id)
-     ->first();
+    //     $reportD=DB::table('noc_reports')
+    //  ->join('teams', 'teams.id', '=', 'noc_reports.team_name')
+    //  ->select('noc_reports.*','teams.team_name')
+    //  ->where('teams.id',$reportsdetail->team_name)
+    //  ->where('noc_reports.id',$reportsdetail->id)
+    //  ->first();
+    $reports = DB::table('noc_reports')->select('noc_reports.*')
+    ->where('noc_reports.id',$reportsdetail->id);
+  
+
+    $reportD = DB::table('teams')
+        ->joinSub(  $reports, 'reports', function ($join) {
+            $join->on('teams.id', '=', 'reports.team_name');
+        })->get();
+
+
+    //   dd($reportD);
+
         $button=true;
        return view('reporttable.reportdetail',compact('reportD','button'),['encode_image'=>$encode_image]);
     }

@@ -9,7 +9,7 @@ class teams_members extends Model
     protected $primaryKey = 'id';
 
    
-    public function teams(){
-        return $this->belongsTo(Team::class,'id');
+    public function team(){
+        return $this->belongsTo('App\teams');
     }
 }

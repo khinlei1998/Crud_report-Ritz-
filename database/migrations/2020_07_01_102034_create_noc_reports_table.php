@@ -15,7 +15,9 @@ class CreateNocReportsTable extends Migration
     {
         Schema::create('noc_reports', function (Blueprint $table) {
             $table->id();
-            $table->string('team_name');
+            $table->unsignedBigInteger('team_name')->nullable();
+            $table->foreign('team_name')->references('id')->on('teams');
+            // $table->string('team_name');
             $table->longText('description');
             $table->date('report_date');
             $table->string('team_members_name');
