@@ -17,7 +17,11 @@ class teams extends Model
 
     public function nocreports()
     {
-        return $this->hasMany('App\noc_reports');
+        // return $this->hasMany('App\noc_reports');
+        return $this->hasMany(noc_reports::class,'team_name');
     }
+    public function getAllTeamsAttribute(){
+        return teams::select('team_name','id')->get();
+     }
 
 }

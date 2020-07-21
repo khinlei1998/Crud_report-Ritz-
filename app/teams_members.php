@@ -10,6 +10,8 @@ class teams_members extends Model
 
    
     public function team(){
-        return $this->belongsTo('App\teams');
+        return $this->belongsTo(team::class,'id');
     }
+
+   
 }

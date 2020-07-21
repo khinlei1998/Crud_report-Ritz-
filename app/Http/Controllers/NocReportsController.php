@@ -139,16 +139,20 @@ class NocReportsController extends Controller
     ->where('noc_reports.id',$reportsdetail->id);
   
 
-    $reportD = DB::table('teams')
+    $reportDd = DB::table('teams')
+  
         ->joinSub(  $reports, 'reports', function ($join) {
-            $join->on('teams.id', '=', 'reports.team_name');
-        })->get();
+            $join->on('teams.id', '=', 'reports.team_name');   
+        })
+      
+        ->first();
 
 
-    //   dd($reportD);
-
+    //    dd($reportDd);
+      $team_name=DB::table('teams')->where('id',$reportDd->team_name)->first();
+    // dd($team_name);
         $button=true;
-       return view('reporttable.reportdetail',compact('reportD','button'),['encode_image'=>$encode_image]);
+       return view('reporttable.reportdetail',compact('reportDd','button','team_name'),['encode_image'=>$encode_image]);
     }
 
     /**

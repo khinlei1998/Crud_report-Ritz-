@@ -159,6 +159,7 @@
                     </table>
                 </td>
             </tr>
+       
             <tr class="email-format">
                 <td bgcolor="#e4e4e4" align="center" style="padding: 0px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 870px;">
@@ -167,19 +168,19 @@
                                 
                                     <div class="row" style="max-width:800px;">
                                         <div class="col-md-12" style="max-width:800px;">
-                                        <p>{!! $reportD->description !!}</p>
+                                        <p>{!! $reportDd->description !!}</p>
                                         </div>
                                     </div>
                                     <div class="row" style="max-width:800px;margin-top:15px;">
                                         <div class="col-md-12" style="max-width:800px;">
                                         <p>Team Member</p>
-                                        <p>{{ $reportD->team_members_name }}</p>
+                                        <p>{{ $reportDd->team_members_name }}</p>
                                         </div>
                                     </div>
                                     <div class="row" style="max-width:800px;margin-top:15px;">
                                         <div class="col-md-12" style="max-width:800px;">
                                         <p style="line-height:2px;">With Best Regards,</p>
-                                        <p>{{ $reportD->team_name }}</p>
+                                        <p>  {{$team_name->team_name}}</p>
                                         </div>
 
                                     </div>
@@ -188,9 +189,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td bgcolor="#ffffff" align="center" height="80px;">
+                            <td bgcolor="#ffffff" align ="center" height="80px;">
                             @if($button)
-                            <a href="{{ url('/pdf/'. $reportD->id ) }}" data-toggle="tooltip" data-placement="top" title="Click Here to Download as PDF" >
+                            <a href="{{ url('/pdf/'. $reportDd->id ) }}" data-toggle="tooltip" data-placement="top" title="Click Here to Download as PDF" >
                              
                                 <img src="{{asset('image/button.png')}}" width="170" height="40">
                              </a>
@@ -199,6 +200,7 @@
                     </table>
                 </td>
             </tr>
+           
             <tr>
                 <td bgcolor="#e4e4e4" align="center" style="padding: 30px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">

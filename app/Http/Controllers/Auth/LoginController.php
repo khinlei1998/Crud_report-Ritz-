@@ -29,6 +29,12 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo ='/daily_rp';
+    protected function authenticated($request, $user){
+        return redirect('/daily_rp');
+    }
+   
+      
+   
 
     /**
      * Create a new controller instance.
