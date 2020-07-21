@@ -87,6 +87,7 @@ class NocReportsController extends Controller
     {
         // dd($id);
         $reportsdetail=noc_reports::where('id',$id)->first();
+        $team_name=DB::table('teams')->where('id',$reportsdetail->team_name)->first();                                                                                   
         $path =file_get_contents(base_path().'/public/image/icons8-business-report-96.png');
       
         $encode_image=base64_encode($path);
@@ -94,7 +95,7 @@ class NocReportsController extends Controller
 
         // return view('reporttable.reportdetail',compact('reportsdetail'));
     //    $allreports=noc_reports::all();
-       $pdf = PDF::loadView('reporttable.pdf_report', ['reportsdetail' => $reportsdetail,'button'=>false,'encode_image'=>$encode_image]);
+       $pdf = PDF::loadView('reporttable.pdf_report', ['reportsdetail' => $reportsdetail,'team_name'=>$team_name,'button'=>false,'encode_image'=>$encode_image]);
        return $pdf->download('daily_report.pdf');
     
   

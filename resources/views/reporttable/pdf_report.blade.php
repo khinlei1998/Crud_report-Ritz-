@@ -47,7 +47,7 @@
                                     <div class="row" style="max-width:800px;line-height:2px;">
                                         <div class="col-md-12" style="max-width:800px;">
                                         <p style="line-height:1px;margin-bottom:1px;">With Best Regards,</p>
-                                        <p>{{ $reportsdetail->team_name }}</p>
+                                        <p>{{ $team_name->team_name }}</p>
                                         </div>
                                     </div>
                                    
